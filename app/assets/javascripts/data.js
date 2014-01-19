@@ -1,10 +1,10 @@
 function getHotels(searchValue){
   if (searchValue.length == 0) {
     searchValue = undefined;
-    alert("Please enter in a city");
+    alert("Please enter in a city")
   }
 
-  var req = $.ajax({
+  $.ajax({
         type: "GET",
         url: "http://jsonp.jit.su/?callback=displayAll&url=http%3A%2F%2Fdeals.expedia.com%2Fbeta%2Fdeals%2Fhotels.json%3Fcity%3D" + searchValue,
         dataType: "JSONP",
@@ -19,7 +19,7 @@ function getHotels(searchValue){
 function displayAll(data){
   console.log(data)
   $.each(data, function(key, value){
-    $(" body").append("<div><span>"+value['city']+":</span><span>"+value['starRating']+"</span></div>");
+    $("body").append("<div><span>"+value['city']+":</span><span>"+value['starRating']+"</span></div>");
   })
 }
 
@@ -28,7 +28,6 @@ $(document).ready(function() {
     e.preventDefault();
     searchValue = $('#submit').val();
     getHotels(searchValue);
-
   }
 });
 
