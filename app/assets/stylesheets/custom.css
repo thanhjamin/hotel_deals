@@ -1,0 +1,17 @@
+.search {
+  top: 175px;
+}
+
+#button {
+  margin: 20px 15px 0px 185px;
+}
+
+::-webkit-input-placeholder::after { font-family: fontAwesome; content:'\f002  '; color: #cccccc; float: right; }
+::-moz-placeholder::after  { font-family: fontAwesome; content:'\f002  '; color: #cccccc; float: right; } /* firefox 19+ */
+:-ms-input-placeholder::after  { font-family: fontAwesome; content:'\f002  '; color: #cccccc; float: right; } /* ie */
+input:-moz-placeholder::after  { font-family: fontAwesome; content:'\f002  '; color: #cccccc; float: right; }
+
+.form-control:focus {
+ -webkit-box-shadow: none;
+  box-shadow: none;
+}
