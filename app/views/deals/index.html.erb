@@ -19,10 +19,17 @@
    $.get('http://jsonp.jit.su/?url=http%3A%2F%2Fdeals.expedia.com%2Fbeta%2Fdeals%2Fhotels.json', function(data){
 
     $.each(data, function(key, value){
-      if (key < 5) {
-        $(".col-lg-10").append("<figure><img src="+value['imageUrl']+">"+"<figcaption>"+value['city']+", "+value['country']+" - "+value['name'].substring(0,24)+"...</figcaption><div class='sparkle' data-score=+" +value['starRating'] +"></div></figure>")
 
-        $('.sparkle').raty({
+      var imageUrl = value['imageUrl']
+      var city = value['city']
+      var country = value['country']
+      var name = value['name']
+      var rating = value['starRating']
+
+      if (key < 5) {
+        $(".col-lg-10").append("<figure><img src="+imageUrl+">"+"<figcaption>"+city+", "+country+" - "+name.substring(0,24)+"...</figcaption><div class='rating' data-score=+" +rating+"></div></figure>")
+
+        $('.rating').raty({
                 score: function() {
               return $(this).attr('data-score');
   }
