@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">Where is your next adventure?</h1>
+<h1 class='header'>Where is your next adventure?</h1>
 
 <body>
   <div class="col-md-offset-3 container col-lg-6 search">
@@ -7,16 +7,29 @@
     <button class="btn btn-info">Advance Search</button>
   </div>
 
-  <div class="col-lg-10 col-md-offset-3" style="top: 300px"></div>
+  <div class="col-lg-10 col-md-offset-2" style="top: 200px">
+
+  </div>
+
 
 
   <script>
   $(document).ready(function(){
 
    $.get('http://jsonp.jit.su/?url=http%3A%2F%2Fdeals.expedia.com%2Fbeta%2Fdeals%2Fhotels.json', function(data){
+
     $.each(data, function(key, value){
-      if (key < 5)
-        $(".col-lg-10").append(value['city']+"<img src="+value['imageUrl']+">");
+      if (key < 5) {
+        $(".col-lg-10").append("<figure><img src="+value['imageUrl']+">"+"<figcaption>"+value['city']+", "+value['country']+" - "+value['name'].substring(0,24)+"...</figcaption><div class='sparkle' data-score=+" +value['starRating'] +"></div></figure>")
+
+        $('.sparkle').raty({
+                score: function() {
+              return $(this).attr('data-score');
+  }
+});
+
+
+      }
   });
   });
 });

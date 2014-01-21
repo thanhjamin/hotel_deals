@@ -35,3 +35,20 @@ input:-moz-placeholder::after  { font-family: fontAwesome; content:'\f002  '; 
   height: 300px;
   border: 1px solid black;
 }
+
+.header {
+  text-align: center;
+  top: 90px;
+  right: 0;
+  left: 0;
+  position: absolute;
+}
+
+figure {
+  float: left;
+  margin-left: 50px;
+}
+
+figcaption {
+  text-align: center;
+}
