@@ -17,10 +17,22 @@ function getHotels(searchValue){
 }
 
 function displayAll(data){
+  $("ul li").remove();
   console.log(data)
   $.each(data, function(key, value){
-    $("body").append("<div><span>"+value['city']+":</span><span>"+value['starRating']+"</span></div>");
+    var imageUrl = value['imageUrl']
+      var city = value['city']
+      var country = value['country']
+      var name = value['name']
+      var rating = value['starRating']
+    $("ul").append("<li><figure><img src="+imageUrl+"></figure><div class='description'>"+city+", "+country+"<div>"+name.substring(0,20)+"...<div class='rating' data-score=+" +rating+"></div></div></div></li>");
   })
+        $('.rating').raty({ 'readOnly': true,
+                score: function() {
+              return $(this).attr('data-score');
+  }
+
+});
 }
 
 $(document).ready(function() {
