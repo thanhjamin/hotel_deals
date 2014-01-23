@@ -7,7 +7,9 @@
     <button class="btn btn-info">Advance Search</button>
   </div>
 
-  <div class="col-lg-10 col-md-offset-2" style="top: 200px">
+  <div class="col-lg-11 col-md-offset-1" style="top: 200px; padding-left: 0px;">
+    <ul>
+    </ul>
 
   </div>
 
@@ -26,13 +28,14 @@
       var name = value['name']
       var rating = value['starRating']
 
-      if (key < 5) {
-        $(".col-lg-10").append("<figure><img src="+imageUrl+">"+"<figcaption>"+city+", "+country+" - "+name.substring(0,24)+"...</figcaption><div class='rating' data-score=+" +rating+"></div></figure>")
+      if (key < 8) {
+        $("ul").append("<li><figure><img src="+imageUrl+"></figure><div class='description'>"+city+", "+country+"<div>"+name.substring(0,20)+"...<div class='rating' data-score=+" +rating+"></div></div></div></li>")
 
-        $('.rating').raty({
+        $('.rating').raty({ 'readOnly': true,
                 score: function() {
               return $(this).attr('data-score');
   }
+
 });
 
 
